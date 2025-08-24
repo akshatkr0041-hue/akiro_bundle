@@ -99,13 +99,31 @@
       <li>AI Motivational, Comedy, Gym, Tech & More</li>
       <li>Perfect for YouTube + Insta + FB</li>
     </ul>
+
+    <!-- ✅ Payment Button -->
     <div class="cta">
-      <button onclick="window.location.href='https://wa.me/91XXXXXXXXXX'">📲 Get on WhatsApp</button>
+      <button onclick="payNow()">💳 Pay ₹99 Now</button>
     </div>
   </div>
 
   <footer>
     <p>© 2025 Akiro Creations | Powered by UPI Payments</p>
   </footer>
+
+  <!-- ✅ Payment Script -->
+  <script>
+    function payNow() {
+      // Step 1: UPI payment link
+      const upiLink = "upi://pay?pa=7654884951@upi&pn=Akiro%20Creations&am=99&cu=INR";
+      
+      // Step 2: Redirect to UPI app
+      window.location.href = upiLink;
+
+      // Step 3: After 4 sec, open WhatsApp to send screenshot
+      setTimeout(() => {
+        window.location.href = "https://wa.me/917654884951?text=✅%20I%20have%20paid%20₹99.%20Here%20is%20my%20screenshot.";
+      }, 4000);
+    }
+  </script>
 </body>
 </html>
