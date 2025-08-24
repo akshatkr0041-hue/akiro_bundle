@@ -112,6 +112,7 @@
     .gpay { background: #4285F4; color: white; }
     .phonepe { background: #5F259F; color: white; }
     .paytm { background: #00B9F1; color: white; }
+    .cancel { background: #555; color: white; }
     .note {
       margin-top: 15px;
       font-size: 0.9em;
@@ -156,6 +157,8 @@
       <button class="gpay" onclick="pay('gpay')">Google Pay</button>
       <button class="phonepe" onclick="pay('phonepe')">PhonePe</button>
       <button class="paytm" onclick="pay('paytm')">Paytm</button>
+      <button class="cancel" onclick="closePopup()">Cancel</button>
+      <p class="note">📸 Don't forget to take a screenshot!</p>
       <p class="note">⚠️ Once the payment is made the money will not be refunded.</p>
     </div>
   </div>
@@ -165,9 +168,12 @@
     function openPopup() {
       document.getElementById("paymentPopup").style.display = "flex";
     }
+    function closePopup() {
+      document.getElementById("paymentPopup").style.display = "none";
+    }
 
     function pay(app) {
-      const upiBase = "upi://pay?pa=7654884951@upi&pn=Akiro%20Creations&am=99&cu=INR";
+      const upiBase = "upi://pay?pa=bulbulajaybulbulajaybulbulajay@okhdfcbank&pn=Akiro%20Creations&am=99&cu=INR";
       let upiLink = "";
 
       if(app === "gpay") {
