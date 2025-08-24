@@ -79,6 +79,45 @@
       background: #222;
       color: white;
     }
+    /* Popup Styling */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .popup-content {
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 350px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .popup-content h3 {
+      margin-bottom: 15px;
+      color: #ff004f;
+    }
+    .popup-content button {
+      margin: 8px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    .gpay { background: #4285F4; color: white; }
+    .phonepe { background: #5F259F; color: white; }
+    .paytm { background: #00B9F1; color: white; }
+    .note {
+      margin-top: 15px;
+      font-size: 0.9em;
+      color: red;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -102,7 +141,7 @@
 
     <!-- ✅ Payment Button -->
     <div class="cta">
-      <button onclick="payNow()">💳 Pay ₹99 Now</button>
+      <button onclick="openPopup()">💳 Pay ₹99 Now</button>
     </div>
   </div>
 
@@ -110,19 +149,43 @@
     <p>© 2025 Akiro Creations | Powered by UPI Payments</p>
   </footer>
 
-  <!-- ✅ Payment Script -->
+  <!-- ✅ Payment Popup -->
+  <div class="popup" id="paymentPopup">
+    <div class="popup-content">
+      <h3>Choose Payment App</h3>
+      <button class="gpay" onclick="pay('gpay')">Google Pay</button>
+      <button class="phonepe" onclick="pay('phonepe')">PhonePe</button>
+      <button class="paytm" onclick="pay('paytm')">Paytm</button>
+      <p class="note">⚠️ Once the payment is made the money will not be refunded.</p>
+    </div>
+  </div>
+
+  <!-- ✅ Script -->
   <script>
-    function payNow() {
-      // Step 1: UPI payment link
-      const upiLink = "upi://pay?pa=7654884951@upi&pn=Akiro%20Creations&am=99&cu=INR";
-      
-      // Step 2: Redirect to UPI app
+    function openPopup() {
+      document.getElementById("paymentPopup").style.display = "flex";
+    }
+
+    function pay(app) {
+      const upiBase = "upi://pay?pa=7654884951@upi&pn=Akiro%20Creations&am=99&cu=INR";
+      let upiLink = "";
+
+      if(app === "gpay") {
+        upiLink = upiBase + "&mc=0000&mode=02&orgid=000000&tn=Payment%20for%20Reels%20Bundle";
+      } else if(app === "phonepe") {
+        upiLink = upiBase + "&tn=Reels%20Bundle%20Payment";
+      } else if(app === "paytm") {
+        upiLink = upiBase + "&tn=Reels%20Bundle%20Payment";
+      }
+
+      // Redirect to UPI App
       window.location.href = upiLink;
 
-      // Step 3: After 4 sec, open WhatsApp to send screenshot
+      // After 5 sec redirect to WhatsApp with message
       setTimeout(() => {
-        window.location.href = "https://wa.me/917654884951?text=✅%20I%20have%20paid%20₹99.%20Here%20is%20my%20screenshot.";
-      }, 4000);
+        const msg = encodeURIComponent("Hello, I have paid ₹99. Please check my payment. 📸 here's my screenshot");
+        window.location.href = "https://wa.me/917654884951?text=" + msg;
+      }, 5000);
     }
   </script>
 </body>
