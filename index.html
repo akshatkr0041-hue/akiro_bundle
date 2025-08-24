@@ -1,36 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Akiro Bundle Store</title>
-<style>
-  body { font-family: Arial, sans-serif; background: #f0f4f8; margin:0; padding:0; }
-  .container { max-width: 500px; margin: 50px auto; background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; }
-  h1 { color: #333; }
-  p { color: #555; }
-  .qr { margin: 20px 0; }
-  .upi { font-weight: bold; margin-bottom: 20px; }
-  .whatsapp { background: #25D366; color: #fff; padding: 15px 20px; border-radius: 10px; text-decoration: none; display: inline-block; margin-top: 20px; font-weight:bold; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akiro Reels Bundle</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff8f0;
+      color: #222;
+    }
+    header {
+      text-align: center;
+      background: #ff004f;
+      color: white;
+      padding: 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+    }
+    .hero {
+      text-align: center;
+      padding: 20px;
+    }
+    .hero img {
+      max-width: 90%;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .price-card {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+    .price {
+      font-size: 2em;
+      color: #ff004f;
+      font-weight: bold;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+    }
+    ul li {
+      margin: 10px 0;
+    }
+    ul li::before {
+      content: "✔️ ";
+      color: green;
+    }
+    .cta {
+      margin-top: 20px;
+    }
+    .cta button {
+      background: #ff004f;
+      border: none;
+      padding: 12px 25px;
+      font-size: 1em;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .cta button:hover {
+      background: #cc003c;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+      background: #222;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-  <h1>Welcome to Akiro Bundle Store 🎉</h1>
-  <p>Purchase your digital product instantly and receive download link via WhatsApp!</p>
-  
-  <p class="upi">Product: Akiro Bundle <br> Price: ₹99</p>
-  
-  <div class="qr">
-    <img src="https://via.placeholder.com/200?text=Your+QR+Code" alt="Scan QR to Pay" width="200">
+  <header>
+    <h1>🔥 Akiro Reels Bundle 🔥</h1>
+    <p>You buy this bundle, you become YouTuber</p>
+  </header>
+
+  <section class="hero">
+    <img src="assets/reels-bundle.png" alt="Reels Bundle">
+  </section>
+
+  <div class="price-card">
+    <p class="price">₹99 Only</p>
+    <ul>
+      <li>130,000+ Ready-to-use Reels</li>
+      <li>Non-Copyright & Viral Content</li>
+      <li>AI Motivational, Comedy, Gym, Tech & More</li>
+      <li>Perfect for YouTube + Insta + FB</li>
+    </ul>
+    <div class="cta">
+      <button onclick="window.location.href='https://wa.me/91XXXXXXXXXX'">📲 Get on WhatsApp</button>
+    </div>
   </div>
-  
-  <p>OR pay directly via UPI ID: <strong>yourupi@upi</strong></p>
-  
-  <p>After payment, send screenshot to WhatsApp:</p>
-  <a href="https://wa.me/91xxxxxxxxxx" class="whatsapp">Send Payment Screenshot on WhatsApp</a>
-  
-  <p style="margin-top:30px; color:#888;">Instant delivery guaranteed! ✅</p>
-</div>
+
+  <footer>
+    <p>© 2025 Akiro Creations | Powered by UPI Payments</p>
+  </footer>
 </body>
 </html>
